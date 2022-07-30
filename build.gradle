@@ -1,0 +1,20 @@
+plugins {
+    id 'idea'
+}
+
+idea.module {
+    excludeDirs += file('out')
+    resourceDirs += file('template')
+    resourceDirs += file('scripts')
+}
+
+ext {
+    min_sdk = 23
+    target_sdk = 31
+
+    outDir = file("$rootDir/out")
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir, outDir
+}

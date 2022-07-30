@@ -1,0 +1,8 @@
+#define INTLROOT    ".magisk"
+#define MIRRDIR     INTLROOT "/mirror"
+#define RULESDIR    MIRRDIR "/sepolicy.rules"
+#define BLOCKDIR    INTLROOT "/block"
+#define MODULEMNT   INTLROOT "/modules"
+#define BBPATH      INTLROOT "/busybox"
+#define ROOTOVL     INTLROOT "/rootdir"
+#define ROOTMNT     ROOTOVL "/.mount_list"

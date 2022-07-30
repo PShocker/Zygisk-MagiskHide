@@ -1,0 +1,6 @@
+id=zygisk_magiskhide
+name=Zygisk - Hide
+version=v1.0.0
+versionCode=26
+author=Shocker
+description=MagiskHide in Zygisk
