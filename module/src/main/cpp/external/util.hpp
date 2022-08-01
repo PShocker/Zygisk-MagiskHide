@@ -12,12 +12,6 @@
 
 using namespace std;
 
-#define getline       compat_getline
-
-static inline bool str_starts(std::string_view s, std::string_view ss) {
-    return s.size() >= ss.size() && s.compare(0, ss.size(), ss) == 0;
-}
-
 ssize_t compat_getdelim(char **buf, size_t *bufsiz, int delimiter, FILE *fp) {
     char *ptr, *eptr;
 
