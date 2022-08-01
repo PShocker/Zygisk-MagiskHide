@@ -30,9 +30,26 @@ set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} ${LINKER_FLAGS}")
 
 # find_package(REQUIRED CONFIG)
 
+include_directories(./)
+include_directories(./external/systemproperties/include)
+include_directories(./external/magiskhide/include)
+include_directories(./external/resetprop/include)
+include_directories(./external)
 
-add_library(${MODULE_NAME} SHARED example.cpp zygisk.hpp)
-target_link_libraries(${MODULE_NAME}  log)
+##################### ⬇CMake源文件设置⬇ #####################
+FILE(GLOB_RECURSE FILE_INCLUDES # 遍历子目录下所有符合情况的头文件
+    ${CMAKE_CURRENT_SOURCE_DIR}/*.h*
+)
+
+FILE(GLOB_RECURSE FILE_SOURCES # 遍历子目录下所有符合情况的源文件
+    ${CMAKE_CURRENT_SOURCE_DIR}/*.c*
+)
+##################### ⬆CMake源文件设置⬆ #####################
+
+add_library(${MODULE_NAME} SHARED 
+            ${FILE_INCLUDES}
+            ${FILE_SOURCES})
+target_link_libraries(${MODULE_NAME} log)
 
 if (NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
     add_custom_command(TARGET ${MODULE_NAME} POST_BUILD

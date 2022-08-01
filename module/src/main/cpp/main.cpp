@@ -1,16 +1,14 @@
 #include <cstdlib>
 #include <unistd.h>
 #include <fcntl.h>
-#include <vector>
-#include <string>
 #include <time.h>
-#include <pthread.h>
-#include <libgen.h>
 #include <string>
 
-#include "zygisk.hpp"
-#include "hide.hpp"
+#include "hide_mount.hpp"
+#include "hide_prop.hpp"
 #include "log.hpp"
+#include "zygisk.hpp"
+
 
 using zygisk::Api;
 using zygisk::AppSpecializeArgs;
@@ -54,8 +52,9 @@ static void companion_handler(int i)
 
     unshare(CLONE_NEWNS);
     mount(nullptr, "/", nullptr, MS_PRIVATE | MS_REC, nullptr);
-    LOGD("do_hide start pid:%d\n",pid);
+    LOGD("daemon pid:%d,do_hide start pid:%d\n",getpid(),pid);
     do_hide(pid);
+    do_hide_prop();
     return;
 }
 
