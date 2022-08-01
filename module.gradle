@@ -15,6 +15,6 @@ ext {
     moduleName = "Zygisk - Hide"
     moduleAuthor = "Shocker"
     moduleDescription = "MagiskHide in Zygisk"
-    moduleVersion = "v1.0.0"
+    moduleVersion = "v1.0.1"
     moduleVersionCode = 26
 }
