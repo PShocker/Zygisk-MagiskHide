@@ -13,7 +13,6 @@
 using namespace std;
 
 #define getline       compat_getline
-#define getdelim      compat_getdelim
 
 static inline bool str_starts(std::string_view s, std::string_view ss) {
     return s.size() >= ss.size() && s.compare(0, ss.size(), ss) == 0;
