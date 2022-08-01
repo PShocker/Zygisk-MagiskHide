@@ -56,7 +56,7 @@ ssize_t compat_getdelim(char **buf, size_t *bufsiz, int delimiter, FILE *fp) {
 }
 
 ssize_t compat_getline(char **buf, size_t *bufsiz, FILE *fp) {
-    return getdelim(buf, bufsiz, '\n', fp);
+    return compat_getdelim(buf, bufsiz, '\n', fp);
 }
 
 struct mntent *getmntent(FILE *fp, struct mntent *e, char *buf, int buf_len)

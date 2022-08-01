@@ -6,14 +6,14 @@ static const char *prop_key[] =
      "ro.boot.veritymode", "ro.boot.warranty_bit", "ro.warranty_bit",
      "ro.debuggable", "ro.secure", "ro.build.type", "ro.build.tags",
      "ro.vendor.boot.warranty_bit", "ro.vendor.warranty_bit",
-     "vendor.boot.vbmeta.device_state", nullptr};
+     "vendor.boot.vbmeta.device_state", "ro.secureboot.lockstate", nullptr};
 
 static const char *prop_val[] =
     {"locked", "green", "1",
      "enforcing", "0", "0",
      "0", "1", "user", "release-keys",
      "0", "0",
-     "locked", nullptr};
+     "locked", "locked", nullptr};
 
 int getprop(const char *name, char *buf)
 {
